@@ -32,8 +32,8 @@ function App() {
     const filtraEtnia = etnia.length > 0 ? `&ethnicity=${etnia}` : ''
     const filtraIdade = idade.length > 0 ? `&age=${idade}` : ''
     const filtraSexo  = sexo.length  > 0 ? `&gender=${sexo}` : ''
-    const filtraCorOlho = eyeColor.length > 0 ? `&eye color=${eyeColor}` : ''
-    const filtraCorCabelo = hairColor.length > 0 ? `&hair color=${hairColor}` : ''
+    const filtraCorOlho = eyeColor.length > 0 ? `&eye_color=${eyeColor}` : ''
+    const filtraCorCabelo = hairColor.length > 0 ? `&hair_color=${hairColor}` : ''
     let url = `https://api.generated.photos/api/v1/faces?api_key=${chaveAPI}${filtraEtnia}${filtraIdade}${filtraSexo}${filtraCorOlho}${filtraCorCabelo}&order_by=random`
     await fetch(url)
       .then(response => response.json())
@@ -84,17 +84,18 @@ function App() {
           </select>  
       <label>Cor dos olhos:</label>
           <select onChange={event => setEyeColor(event.target.value)}>
-            <option value="black">Preto</option>
             <option value="brown">Castanho</option>
             <option value="blue">Azul</option>
+            <option value="gray">Gray</option>
             <option value="green">Verde</option>
           </select>
       <label>Cor do cabelo:</label>
           <select onChange={event => setHairColor(event.target.value)}>
-            <option value="brunette">Preto</option>
             <option value="brown">Castanho</option>
-            <option value="blonde">Loiro</option>
-            <option value="red-haired">Ruivo</option>
+            <option value="blond">Loiro</option>
+            <option value="black">Preto</option>
+            <option value="gray">Gray</option>
+            <option value="red">Ruivo</option>
           </select>
         </div>
       <div className='linha'>
